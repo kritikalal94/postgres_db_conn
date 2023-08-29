@@ -18,7 +18,10 @@ def run_query(query):
         return cur.fetchall()
 
 #rows = run_query("SELECT * from mytable;")
-rows = run_query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';")
+try:
+    rows = run_query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';")
+except DatabaseError as dbError:
+    st.error(dbError)
 
 # Print results.
 for row in rows:
