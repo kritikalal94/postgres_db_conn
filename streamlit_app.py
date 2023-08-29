@@ -21,7 +21,10 @@ def run_query(query):
 try:
     rows = run_query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';")
     # Print results.
-    for row in rows:
-        st.write(f"{row[0]} has a :{row[1]}:")
+    if not rows:
+        st.info("0 rows fetched")
+    else:
+        for row in rows:
+            st.write(f"{row[0]} has a :{row[1]}:")
 except Exception as e:
     st.error(e)
