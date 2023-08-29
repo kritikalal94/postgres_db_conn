@@ -25,7 +25,7 @@ try:
     if not rows:
         st.info("0 rows fetched")
     else:
-        st.dataframe(rows)
+        st.dataframe(rows, use_container_width=True)
         for row in rows:
             st.write(f"{row[0]} has a :{row[1]}:")
 except Exception as e:
