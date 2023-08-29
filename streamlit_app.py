@@ -20,9 +20,8 @@ def run_query(query):
 #rows = run_query("SELECT * from mytable;")
 try:
     rows = run_query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';")
+    # Print results.
+    for row in rows:
+        st.write(f"{row[0]} has a :{row[1]}:")
 except Exception as e:
     st.error(e)
-
-# Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
