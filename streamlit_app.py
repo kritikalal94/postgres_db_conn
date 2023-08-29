@@ -20,7 +20,7 @@ def run_query(query):
 #rows = run_query("SELECT * from mytable;")
 rows = ''
 try:
-    rows = run_query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';")
+    rows = run_query("SELECT * FROM subscribers;")
     # Print results.
     if not rows:
         st.info("0 rows fetched")
