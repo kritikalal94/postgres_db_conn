@@ -17,10 +17,10 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-#rows = run_query("SELECT * from mytable;")
 rows = ''
 try:
-    rows = run_query("SELECT * FROM subscribers;")
+    rows = run_query("SELECT * from mytable;")
+    #rows = run_query("SELECT * FROM subscribers;")
     # Print results.
     if not rows:
         st.info("0 rows fetched")
